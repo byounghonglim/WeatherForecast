@@ -33,6 +33,7 @@ class ImageViewCoil : ImageView {
             load(value, imageLoader) {
                 crossfade(true)
                 placeholder(R.drawable.ic_empty_thumbnail)
+                error(R.drawable.ic_empty_thumbnail)
                 transformations(MinSizeTransformation())
             }
         }
