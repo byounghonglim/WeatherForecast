@@ -13,6 +13,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
+/**
+ * Retrofit & OkHttp 세팅
+ */
 @Module
 @InstallIn(ApplicationComponent::class)
 object NetworkModule {
@@ -20,8 +23,11 @@ object NetworkModule {
     private const val READ_TIMEOUT = 100L
 
     @Provides
-    fun provideBaseUrl()  = BuildConfig.SERVER_URL
+    fun provideBaseUrl()  = BuildConfig.SERVER_URL        //서버 기본 주소
 
+    /**
+     * OkHttp 세팅
+     */
     @Provides
     @Singleton
     fun provideOkHttpClient() =
@@ -36,6 +42,9 @@ object NetworkModule {
             }
         }.build()
 
+    /**
+     * Retrofit 세팅
+     */
     @Provides
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient, BaseUrl: String): Retrofit =

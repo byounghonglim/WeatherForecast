@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="androidx.core.content.ContextCompat"/>
+        <variable
+            name="weatherForecast"
+            type="com.byounghong.weatherforecast.data.remote.data.ConsolidatedWeatherItem"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@drawable/table_border"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtWeatherStateAbbr"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/txtHumidity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/imgWeather"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            android:layout_marginHorizontal="5dp"
+            tools:text="stateAbbr"
+            android:textSize="15dp"
+            android:text="@{weatherForecast.weatherStateName}"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtTheTemp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff0000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imgWeather"
+            app:layout_constraintTop_toBottomOf="@id/txtWeatherStateAbbr"
+            app:layout_constraintEnd_toStartOf="@id/txtHumidity"
+            android:layout_marginHorizontal="5dp"
+            android:text="@{weatherForecast.temprature}"
+            tools:text="temp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/txtHumidity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txtTheTemp"
+            app:layout_constraintTop_toBottomOf="@id/txtWeatherStateAbbr"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="5dp"
+            android:text="@{weatherForecast.humidity}"
+            tools:text="humidity"
+            android:textStyle="bold"
+            />
+
+        <com.byounghong.weatherforecast.ui.view.ImageViewCoil
+            android:id="@+id/imgWeather"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:adjustViewBounds="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/txtWeatherStateAbbr"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:url="@{@string/weather_img_url(weatherForecast.weatherStateAbbr)}"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -7,6 +7,9 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/**
+ * 네트워크 사용 가능한 상태 체크
+ */
 @Singleton
 class NetworkStatus @Inject constructor(@ApplicationContext private val context: Context){
     fun isNetworkConnected(): Boolean {
