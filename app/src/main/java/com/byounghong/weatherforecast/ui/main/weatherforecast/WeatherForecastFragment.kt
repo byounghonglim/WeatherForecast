@@ -60,6 +60,8 @@ class WeatherForecastFragment : Fragment(R.layout.fragment_weatherforecast) {
         } else {
             if(!refreshLayout.isRefreshing){
                 progressBar.visibility = View.VISIBLE
+            } else{
+                progressBar.visibility = View.GONE
             }
         }
     }
