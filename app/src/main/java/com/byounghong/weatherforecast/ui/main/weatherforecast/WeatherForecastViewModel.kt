@@ -1,4 +1,4 @@
-package com.byounghong.weatherforecast.ui.main
+package com.byounghong.weatherforecast.ui.main.weatherforecast
 
 import androidx.lifecycle.ViewModel
 

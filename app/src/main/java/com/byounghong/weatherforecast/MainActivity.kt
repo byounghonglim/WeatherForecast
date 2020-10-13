@@ -2,7 +2,7 @@ package com.byounghong.weatherforecast
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.byounghong.weatherforecast.ui.main.WeatherForecastFragment
+import com.byounghong.weatherforecast.ui.main.weatherforecast.WeatherForecastFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
