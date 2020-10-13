@@ -2,8 +2,10 @@ package com.byounghong.weatherforecast
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.byounghong.weatherforecast.ui.main.MainFragment
+import com.byounghong.weatherforecast.ui.main.WeatherForecastFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -11,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, MainFragment.newInstance())
+                    .replace(R.id.container, WeatherForecastFragment.newInstance())
                     .commitNow()
         }
     }
